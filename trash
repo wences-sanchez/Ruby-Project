@@ -1,0 +1,3 @@
+def metodo
+  puts "Hola Mundo!"
+end
