@@ -2,17 +2,17 @@ require_relative 'palabra'
 
 RSpec.describe Palabra do
 
-  # Usamos let para inicializar la variable 'palindromo' de manera tardía
-  let(:palindromo) {Palabra.new("madam")}
-
-  it 'debería ser palíndromo' do
-    expect(palindromo.original).to eq(palindromo.al_reves)
+  # Llamado en el contexto de los ejemplos
+  before(:example) do
+    @palindromo = Palabra.new("madam")
+    @no_palindromo = Palabra.new("Madame")
   end
 
-  # Usamos let para inicializar la variable 'no_palindromo' de manera tardía
-  let(:no_palindromo) {Palabra.new("Madame")}
+  it 'la palabra debería ser palíndromo' do
+    expect(@palindromo.es_palindromo?).to be_truthy
+  end
 
-  it 'NO debería ser palíndromo' do
-    expect(no_palindromo.original).not_to eq(no_palindromo.al_reves)
+  it 'la palabra NO debería ser palíndromo' do
+    expect(@no_palindromo.es_palindromo?).to be_falsey
   end
 end

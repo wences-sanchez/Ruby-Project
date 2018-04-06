@@ -12,4 +12,8 @@ class Palabra
   def al_reves
     @caracteres.reverse
   end
+
+  def es_palindromo?
+    @caracteres == @caracteres.reverse
+  end
 end
